@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace InterfaceExercise
 {
@@ -8,9 +9,9 @@ namespace InterfaceExercise
         {
             //TODO Be sure to follow BEST PRACTICES when creating classes and interfaces
 
-            //Create 2 Interfaces called IVehicle & ICompany
+            //Create 2 Interfaces called IVehicle & ICompany -D
 
-            //Create 3 classes called Car , Truck , & SUV
+            //Create 3 classes called Car , Truck , & SUV-D
 
             //In your IVehicle
             
@@ -39,6 +40,22 @@ namespace InterfaceExercise
 
             //Now, create objects of your 3 classes and give their members values;
             //Creatively display and organize their values
+
+            Car car1= new Car() {HasTrunk = true, FoldingBackSeats = true, NumberOfWheels = 4, HasHeadLights = true, HasTailLights = true, Slogan = "BMW - The Ultimate Driving Machine"};
+            Truck truck1 = new Truck() { HasBed = true, HasHitch = false, NumberOfWheels = 4, HasHeadLights = true, HasTailLights = true, Slogan = "Chevy - Like a Rock" };
+            SUV suv1 = new SUV() { HasFWD = true, HasThirdRow = true, NumberOfWheels = 4, HasHeadLights = true, HasTailLights = true, Slogan = "Mercedes - Unlike any other" };
+
+            List<IVehicle> vehicles = new List<IVehicle>() { truck1, suv1, car1 };
+
+            foreach (var vehicle in vehicles) 
+            {
+                Console.WriteLine("======================");
+                vehicle.PrintVehicleDetails();
+                vehicle.HonkNoise();
+                Console.WriteLine();
+                Console.WriteLine();
+            }
+
         }
     }
 }
